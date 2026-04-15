@@ -17,7 +17,11 @@ function App() {
 
   try {
     setLoading(true);   // 🔥 start loading
-    const res = await axios.post("resume-analyzer-backend-production-044b.up.railway.app/analyze", formData);
+    const res = await axios.post("resume-analyzer-backend-production-044b.up.railway.app/api/analyze", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  });
     setResult(res.data);
   } catch (err) {
     console.error(err);
